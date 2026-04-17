@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<title>Hey, Nona. It's For You ❤️</title>
+
+<style>
+body { 
+  font-family: 'Poppins', sans-serif;
+  text-align: center; 
+  background: #ffc0cb; 
+  color: #222; 
+  transition: background 0.3s; 
+  display: flex;
+  flex-direction: column; /* ADD THIS */
+  justify-content: center;
+  align-items: center; /* CHANGE THIS */
+  min-height: 100vh;
+  margin: 0;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+.container { 
+  text-align: center;
+  max-width: 700px;
+}
+h2 { font-size: 40px; }
+button { 
+  padding: 14px 28px; 
+  margin: 12px; 
+  border: none; 
+  border-radius: 14px; 
+  cursor: pointer; 
+  font-size: 18px; 
+}
+.hidden { display: none; }
+#feedback { font-size: 22px; margin-top: 20px; }
+canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 999; }
+
+/* Loader */
+.loader {
+  border: 3px solid #eee;
+  border-top: 3px solid #ff69b4;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Cake */
+.cake {
+  font-size: 60px;
+  animation: bounce 1s infinite alternate;
+  margin-top: 20px;
+}
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+
+/* Gallery */
+.gallery {
+  margin-bottom: 25px;
+}
+.memory {
+  margin-bottom: 25px;
+}
+.memory-img {
+  width: 220px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.memory p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* Love letter */
+#message > div {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+#message p {
+  line-height: 1.5;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<canvas id="confetti"></canvas>
+
+<div class="container" id="start">
+<h2>Hey… I have a little surprise for you 👀 (you’ll love it dw 😭)</h2>
+<button onclick="startQuiz()">Start</button>
+</div>
+
+<div class="container hidden" id="quiz">
+<h2 id="question"></h2>
+<div id="answers"></div>
+<p id="feedback"></p>
+<div id="nextBtn"></div>
+</div>
+
+<div class="container hidden" id="message">
+
+<!-- 💖 GALLERY -->
+<div class="gallery">
+
+  <div class="memory">
+    <img src="file:///C:/Users/Admin/Downloads/pic1.jpg.jpeg" class="memory-img">
+    <p>Our favorite history photo ❤️</p>
+  </div>
+
+  <div class="memory">
+    <img src="file:///C:/Users/Admin/Downloads/pic2.jpg.jpeg" class="memory-img">
+    <p>Being with you feels like home ❤️</p>
+  </div>
+
+  <div class="memory">
+    <img src="file:///C:/Users/Admin/Downloads/pic3.jpg.jpeg" class="memory-img">
+    <p>Always taking selfies with you tehehe ❤️</p>
+  </div>
+
+  <div class="memory">
+    <img src="file:///C:/Users/Admin/Downloads/pic4.jpg.jpeg" class="memory-img">
+    <p>Our silly picture 😭</p>
+  </div>
+
+  <div class="memory">
+    <img src=" file:///C:/Users/Admin/Downloads/pic5.jpg.jpeg" class="memory-img">
+    <p>You always look cute with every random pet</p>
+  </div>
+
+  <div class="memory">
+    <img src="file:///C:/Users/Admin/Downloads/pic6.jpg.jpeg" class="memory-img">
+    <p>Look how creative you are tehehe 😭</p>
+  </div>
+
+<div class="memory">
+    <img src="file:///C:/Users/Admin/Downloads/pic7.jpg.jpeg" "file:///C:/Users/Admin/Downloads/pic8.jpg.jpeg" class="memory-img">
+    <p>Always writing your name everywhere, no matter what tehehe</p>
+  </div>
+
+<div class="memory">
+    <img src=" file:///C:/Users/Admin/Downloads/pic10.jpg.jpeg" class="memory-img">
+    <p>Always stealing my hoodie tehehe (i have no problem with that dw 😭)</p>
+  </div>
+
+<div class="memory">
+    <img src=" file:///C:/Users/Admin/Downloads/pic9.jpg.jpeg" class="memory-img">
+    <p>When you play piano, it makes me want to stay and listen 24/7</p>
+  </div>
+
+</div>
+
+<!-- 💌 MESSAGE -->
+<div>
+<h2>HAPPY BIRTHDAYY MY NONAAA ❤️</h2>
+<p>
+happy birthday to the person who is kind, caring, funny, beautiful, adorable, my moon, and many things that i can’t even describe from what i see in my heart.
+it’s been almost a year of being together since may 31st, the day our story began in our life. we learned from each other, fixed our mistakes, and felt our love. our eye contact will never fade.
+you are not just a person i love, but more than that, you are my gossip, my music teacher, my best friend, my therapist friend, my supportive friend, my fun friend… you can be everything with me.
+since it’s your 17th now, i know it sounds crazy how fast we’re growing, but thankfully you are growing with me, because without that i can’t even imagine anything without you. ❤️</p>
+<div class="cake">🎂</div>
+</div>
+
+</div>
+
+<script>
+let questions = [
+{
+q: "Who always takes the first step? 👀",
+a: ["Hazem", "Nona"],
+correct: "Hazem",
+correctMsg: "Of course it’s me 😏 always leading the way tehehe",
+wrongMsg: "Nahhh 😭 try again, you know this one"
+},
+{
+q: "Where do we mostly go out together? 🏙️",
+a: ["Mall of Arabia", "Arkan", "Zed Park"],
+correct: "Mall of Arabia",
+correctMsg: "Yesss 😭 our spot fr",
+wrongMsg: "Nope 😭 think about our usual place"
+},
+{
+q: "What’s our favorite show? 🎬",
+a: ["The Summer I Turned Pretty", "Stranger Things", "The Office", "All of them"],
+correct: "All of them",
+correctMsg: "YESS WE GOT TASTE FRFRFR 😌🔥",
+wrongMsg: "Come onnn you know we love both 😭"
+},
+{
+q: "What’s our favorite fast food? 🍔",
+a: ["McDonald’s", "Dunkin", "Pizza Hut"],
+correct: "McDonald’s",
+correctMsg: "YOU GODDAMN RIGHTT TEHEHE",
+wrongMsg: "Nooo 😭 think again"
+},
+{
+q: "Who sleeps a lot? 😴",
+a: ["Hazem", "Nona"],
+correct: "Nona",
+correctMsg: "ITS ALWAYS YOU BAHAHAHAHA 😭(SORRRYYYYYY)",
+wrongMsg: "Nooo 😭 think again"
+},
+{
+q: "What am I most grateful for? ❤️",
+a: ["Your smile", "You", "Having you in my life", "Our memories", "All of the above"],
+correct: "All of the above",
+correctMsg: "How could it be just one thing… it’s everything about you ❤️",
+wrongMsg: "Not just one… think bigger 🥺"
+}
+];
+
+let current = 0;
+
+function startQuiz() {
+document.getElementById('start').classList.add('hidden');
+document.getElementById('quiz').classList.remove('hidden');
+showQuestion();
+}
+
+function showQuestion() {
+let q = questions[current];
+document.getElementById('question').innerText = q.q;
+let answersDiv = document.getElementById('answers');
+answersDiv.innerHTML = "";
+document.getElementById('nextBtn').innerHTML = "";
+q.a.forEach(answer => {
+let btn = document.createElement('button');
+btn.innerText = answer;
+btn.onclick = () => checkAnswer(answer);
+answersDiv.appendChild(btn);
+});
+}
+
+function flash(color) {
+document.body.style.background = color;
+setTimeout(() => document.body.style.background = '#ffc0cb', 300);
+}
+
+function checkAnswer(answer) {
+let q = questions[current];
+if (answer === q.correct) {
+document.getElementById('feedback').innerText = q.correctMsg;
+flash('lightgreen');
+
+// loader
+let loader = document.createElement('div');
+loader.className = 'loader';
+document.getElementById('nextBtn').innerHTML = "";
+document.getElementById('nextBtn').appendChild(loader);
+
+if (current === questions.length - 1) {
+let btn = document.createElement('button');
+btn.innerText = "I got something else special for you… ❤️";
+btn.onclick = () => {
+document.getElementById('quiz').classList.add('hidden');
+document.getElementById('message').classList.remove('hidden');
+};
+setTimeout(() => {
+document.getElementById('nextBtn').innerHTML = "";
+document.getElementById('nextBtn').appendChild(btn);
+}, 1200);
+
+} else {
+current++;
+setTimeout(() => {
+document.getElementById('feedback').innerText = "";
+document.getElementById('nextBtn').innerHTML = "";
+showQuestion();
+}, 1200);
+}
+
+} else {
+document.getElementById('feedback').innerText = q.wrongMsg;
+flash('#ff6b6b');
+}
+}
+</script>
+
+</body>
+</html>
